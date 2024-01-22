@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 import cors from 'cors';
 import routerVeterinarios from './routers/veterinario_routes.js'
 import routerPacientes from './routers/paciente_routes.js'
+import routerTratamiento from './routers/tratameinto_routes.js'
 
 
 
@@ -30,6 +31,7 @@ app.use(express.json())
 
 
 
+
 // Rutas 
 app.get('/',(req,res)=>{
     res.send("Server on")
@@ -39,6 +41,8 @@ app.use('/api',routerVeterinarios)
 
 //Ruta para pacientes
 app.use('/api',routerPacientes)
+
+app.use('/api',routerTratamiento)
 
 
 // Manejo de una ruta que no sea encontrada
