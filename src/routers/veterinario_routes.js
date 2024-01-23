@@ -25,8 +25,8 @@ import {
 } from "../controllers/veterinario_controller.js";
 
 //Rutas publicas
-router.post('/login',login)
 router.post('/registro',validacionVeterinario,registro)
+router.post('/login',login)
 router.get('/confirmar/:token',confirmEmail)
 router.get('/veterinarios',listarVeterinarios)
 router.post('/recuperar-password',recuperarPassword)
