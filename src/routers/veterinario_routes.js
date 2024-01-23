@@ -25,20 +25,20 @@ import {
 } from "../controllers/veterinario_controller.js";
 
 //Rutas publicas
-router.post('/login',login)
-router.post('/registro',validacionVeterinario,registro)
+router.post('/registro',validacionVeterinario,registro)//Listo
+router.post('/login',login)//Listo
 router.get('/confirmar/:token',confirmEmail)
 router.get('/veterinarios',listarVeterinarios)
-router.post('/recuperar-password',recuperarPassword)
-router.get('/recuperar-password/:token',comprobarTokenPasword)
-router.post('/nuevo-password/:token',nuevoPassword)
+router.post('/recuperar-password',recuperarPassword)//Listo
+router.get('/recuperar-password/:token',comprobarTokenPasword)//Listo
+router.post('/nuevo-password/:token',nuevoPassword)//Listo
 
 
 //Rutas privadas
 router.get('/perfil',verificarAutenticacion,perfil)
 router.put('/veterinario/actualizarpassword',verificarAutenticacion,actualizarPassword)
 router.get('/veterinario/:id',verificarAutenticacion,detalleVeterinario)
-router.put('/veterinario/:id',verificarAutenticacion,actualizarPerfil)
+router.put('/veterinario/:id',verificarAutenticacion,actualizarPerfil)//Listo
 
 
 export default router
