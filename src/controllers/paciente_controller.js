@@ -2,6 +2,7 @@ import { sendMailToPaciente } from "../config/nodemailer.js"
 import generarJWT from "../helpers/crearJWT.js"
 import Paciente from "../models/Paciente.js"
 import mongoose from "mongoose"
+import Tratamiento from "../models/Tratamiento.js"
 
 
 const loginPaciente = async(req,res)=>{
@@ -36,19 +37,11 @@ const perfilPaciente =(req,res)=>{
     res.status(200).json(req.pacienteBDD)
 }
 
-
-
-
 const listarPacientes = async (req,res)=>{
 
     const pacientes = await Paciente.find({estado:true}).where('veterinario').equals(req.veterinarioBDD).select("-salida -createdAt -updatedAt -__v").populate('veterinario','_id nombre apellido')
     res.status(200).json(pacientes)
 }
-
-
-
-
-
 
 const detallePaciente = async(req,res)=>{
     const {id} = req.params
@@ -60,7 +53,6 @@ const detallePaciente = async(req,res)=>{
         tratamientos
     })
 }
-
 
 const registrarPaciente = async(req,res)=>{
     const {email} = req.body
@@ -75,7 +67,6 @@ const registrarPaciente = async(req,res)=>{
     await nuevoPaciente.save()
     res.status(200).json({msg:"Registro exitoso del paciente y correo enviado"})
 }
-
 
 const actualizarPaciente = async(req,res)=>{
     const {id} = req.params
