@@ -1,17 +1,16 @@
-//iMPORAT LA VARIABLE APP
-import app from './server.js'
+// Importar la aplicación express
+import app from './server.js';
 
-//Importando la funcion con la BDD
+// Importar la función para la conexión con la base de datos
 import connection from './database.js';
 
-//llamando la funcion connection()
-connection()
+// Llamar a la función para establecer la conexión con la base de datos
+connection();
 
+// Obtener el puerto desde la configuración de la aplicación
+const port = process.env.PORT || 3000;
 
-app.listen(app.get('port'),()=>{
-    console.log(`Server ok on http://localhost:${app.get('port')}`);
-})
-
-
-
-
+// Iniciar el servidor
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+});
